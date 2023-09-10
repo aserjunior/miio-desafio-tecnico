@@ -1,5 +1,6 @@
 # Documentação da API
-> **Dica** para facilitar os testes com a API utilizei a ferramente **Insomnia**.
+> **
+Dica** para facilitar os testes com a API utilizei a ferramente **Insomnia**.
 O objetivo desse desafio era consumir a API do TMDb e armazenar os filmes populares.
 Após isso é preciso criar uma task usando o celery para agendar essa busca por novos
 filmes populares a cada 2 horas.
@@ -32,7 +33,7 @@ Resposta
 ```
 ## Apresentar detalhes de um filme específico baseado no seu ID
 * Rota: `/movies/{id}/`
-* Método: `GET`
+* Método: `GET`.
 Parâmetros da URL
   - `{id}` (obrigatório): O Id do filme 
 Resposta
