@@ -1,0 +1,80 @@
+version: '3'
+
+
+services:
+
+  redis:
+    image: redis:7.0.11-alpine
+    ports:
+      - "6379:6379"
+
+  db:
+    image: postgres
+    container_name: miio-db
+    environment:
+      POSTGRES_DB: miio
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  django:
+    container_name: miio-django
+    build:
+      context: ./miio-desafio
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./miio-desafio:/usr/src/app/
+    ports:
+      - 8001:8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=0606j0k6ljk0l60606jk0laega
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZmUwN2I2ODc3MjFkMjBkYTcxNjUwZjFjZGUxYjk0MyIsInN1YiI6IjY0ZmIwNDEyZmZjOWRlMDBmZTQwMWM3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bzRa-8YM8k_i6sV1TIDgboo8lG5GtbmA73YfJCJ74l0
+    depends_on:
+      - db
+      - redis
+
+  celery-worker:
+    container_name: celery-worker
+    build:
+      context: ./miio-desafio
+    command: celery -A miio.celery worker -l info
+    volumes:
+      - ./miio-desafio:/usr/src/app/
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=0606j0k6ljk0l60606jk0laega
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZmUwN2I2ODc3MjFkMjBkYTcxNjUwZjFjZGUxYjk0MyIsInN1YiI6IjY0ZmIwNDEyZmZjOWRlMDBmZTQwMWM3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bzRa-8YM8k_i6sV1TIDgboo8lG5GtbmA73YfJCJ74l0
+    depends_on:
+      - db 
+      - redis
+      - django
+
+  celery-beat:
+    container_name: celery-beat
+    build:
+      context: ./miio-desafio
+    command: celery -A miio beat -l info 
+    volumes:
+      - ./miio-desafio:/usr/src/app/
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=0606j0k6ljk0l60606jk0laega
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZmUwN2I2ODc3MjFkMjBkYTcxNjUwZjFjZGUxYjk0MyIsInN1YiI6IjY0ZmIwNDEyZmZjOWRlMDBmZTQwMWM3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bzRa-8YM8k_i6sV1TIDgboo8lG5GtbmA73YfJCJ74l0
+    depends_on:
+      - db
+      - redis
+      - django
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres@hotmail.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - "5050:80"
