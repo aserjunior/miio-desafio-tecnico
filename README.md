@@ -37,7 +37,7 @@ python manage.py createsuperuser
 Ao executar este comando, crie o seu usuário.
 Após criar o usuário, agora é possivel acessar a parte do admin do projeto
 ### OBS
-  - Ao realizar o docker-compose, já está setado para executar as migrations.
+  - Ao realizar o docker-compose, já está setado para executar as migrations e o celery.
   - Pode ser utilizado tanto localhost:portas ou 127.0.0.1:portas
   - O projeto está utilizando a porta 8001.
   - Na porta 5050, poderá acessar o pgAdmin referente ao banco do container:
