@@ -1,4 +1,3 @@
-# Use the Dockerfile located in the same directory as requirements.txt
 FROM python:3.11.4-alpine
 
 # Install PostgreSQL development libraries
