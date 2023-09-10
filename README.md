@@ -36,6 +36,8 @@ python manage.py createsuperuser
 Ao executar este comando, crie o seu usuário.
 Após criar o usuário, agora é possivel acessar a parte do admin do projeto
 ### OBS
+  - Versão do python utilizada Python 3.11.4
+  - Utilizei o Windows, então não sei como será a execução em outros sistemas operacionais.
   - Ao realizar o docker-compose, já está setado para executar as migrations e o celery.
   - Pode ser utilizado tanto localhost:portas ou 127.0.0.1:portas
   - O projeto está utilizando a porta 8001.
