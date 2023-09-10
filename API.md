@@ -49,7 +49,7 @@ Resposta
 ```
 ## Criar um novo objeto Movie dados os necessários parâmetros
 * Rota: `/movies/`
-* Método: `POST`
+* Método: `POST`¨<br>
 Parâmetros do Corpo (JSON)
 ```
 {
