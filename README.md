@@ -49,3 +49,4 @@ Após criar o usuário, agora é possivel acessar a parte do admin do projeto
     - username: postgres
     - password: postgres
   - Pronto. Agora poderá visualizar o banco que está sendo utilizado pelo pgAdmin.
+  - A documentação da API está na API.md.
