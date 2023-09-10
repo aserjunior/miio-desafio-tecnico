@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from mainapp.models import Movies
-from .serializers import MovieSerializer
+from .serializers import MovieSerializer, MovieSerializerNotId
 from .tasks import get_api_popular_movies
 
 class MoviesListAndCreate(APIView):
@@ -53,7 +53,7 @@ class MoviesUpdate(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         
         #If it exists, checks if data is valid
-        serializer = MovieSerializer(specific_movie, data=request.data, partial=True)
+        serializer = MovieSerializerNotId(specific_movie, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -68,7 +68,7 @@ class MoviesUpdate(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         
         #If it exists, checks if data is valid
-        serializer = MovieSerializer(specific_movie, data=request.data)
+        serializer = MovieSerializerNotId(specific_movie, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
