@@ -1,6 +1,5 @@
 # miio-desafio-tecnico
-Projeto feito para o desafio técnico da miio de criar uma API RESTful de filmes
-
+Projeto feito para o desafio técnico da miio de criar uma API RESTful sobre filmes com consumo da API TMDb
 ## Como configurar e executar esse projeto
 ## Via Docker
 ### 1 - Realizando o docker-compose para criar as imagens e containers
