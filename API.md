@@ -9,7 +9,7 @@ No README, já foi informado mas sempre é bom reforçar, o projeto está utiliz
 # Rotas da API
 ## Mostrar uma lista dos 20 filmes mais populares, ordenados por popularidade.
 * Rota: `/movies/`
-* Método: `GET`
+* Método: `GET` <br>
 Resposta
 ```
 {
@@ -33,7 +33,7 @@ Resposta
 ```
 ## Apresentar detalhes de um filme específico baseado no seu ID
 * Rota: `/movies/{id}/`
-* Método: `GET`.
+* Método: `GET` <br>
 Parâmetros da URL
   - `{id}` (obrigatório): O Id do filme 
 Resposta
@@ -50,7 +50,7 @@ Resposta
 ```
 ## Criar um novo objeto Movie dados os necessários parâmetros
 * Rota: `/movies/`
-* Método: `POST`¨<br>
+* Método: `POST`<br>
 Parâmetros do Corpo (JSON)
 ```
 {
@@ -77,7 +77,7 @@ Resposta
 ```
 ### Fazer update do objeto Movie
 * Rota: `/movies/update/{id}/`
-* Método: `PUT`
+* Método: `PUT` <br>
 Parâmetros da URL
  - `{id}` (obrigatório): O Id do filme <br>
 Parâmetros do Corpo (JSON)
@@ -106,7 +106,7 @@ Resposta
 ### Fazer update parcial do objeto Movie
 * Rota: `/movies/update/{id}/`
 *  Método: `PATCH`
-*  Parâmetros da URL
+*  Parâmetros da URL <br>
  - `{id}` (obrigatório): O Id do filme <br>
 Parâmetros do Corpo (JSON)
 ```
