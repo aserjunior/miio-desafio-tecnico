@@ -18,7 +18,7 @@ app.config_from_object(settings, namespace='CELERY')
 app.conf.beat_schedule = {
     'fetch_popular_movies': {
         'task': 'api.tasks.fetch_api_popular_movies',
-        'schedule': timedelta(minutes=2)
+        'schedule': timedelta(hours=2)
     }
 }
 
