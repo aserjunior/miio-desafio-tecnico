@@ -9,7 +9,7 @@ class MovieSerializer(serializers.ModelSerializer):
 class MovieSerializerNotId(serializers.ModelSerializer):
     class Meta:
         model = Movies
-        # Exclude id from the request data, and response
+        # Exclude id from the request data and response
         # Avoinding user to change the pk=id however he wants
         exclude = ['id']
 
