@@ -75,7 +75,7 @@ Resposta
 }
 ```
 ### Fazer update do objeto Movie
-* Rota: `/movies/update/{id}`
+* Rota: `/movies/update/{id}/`
 * Método: `PUT`
 Parâmetros da URL
  - `{id}` (obrigatório): O Id do filme
@@ -103,7 +103,7 @@ Resposta
 }
 ```
 ### Fazer update parcial do objeto Movie
-* Rota: `/movies/update/{id}`
+* Rota: `/movies/update/{id}/`
 *  Método: `PATCH`
 *  Parâmetros da URL
  - `{id}` (obrigatório): O Id do filme
