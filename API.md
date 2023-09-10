@@ -78,7 +78,7 @@ Resposta
 * Rota: `/movies/update/{id}/`
 * Método: `PUT`
 Parâmetros da URL
- - `{id}` (obrigatório): O Id do filme
+ - `{id}` (obrigatório): O Id do filme <br>
 Parâmetros do Corpo (JSON)
 ```
 {
@@ -106,7 +106,7 @@ Resposta
 * Rota: `/movies/update/{id}/`
 *  Método: `PATCH`
 *  Parâmetros da URL
- - `{id}` (obrigatório): O Id do filme
+ - `{id}` (obrigatório): O Id do filme <br>
 Parâmetros do Corpo (JSON)
 ```
 {
